@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+echo -e "\nim in wordmove provisioning!..."
+
 if [ $(gem -v|grep '^2.') ]; then
 	echo "gem installed"
 else
