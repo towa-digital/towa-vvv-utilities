@@ -29,5 +29,10 @@ else
 fi
 
 # lftp install
-echo "installing lftp"
-apt-get install -y lftp
+if [[ ! -d "/home/vagrant/.lftprc" ]]; then
+  echo -e "\ninstall lftp and create config file"
+  apt-get install -y lftp
+  touch /home/vagrant/.lftprc
+  echo "set ssl:verify-certificate no \n" > /home/vagrant/.lftprc
+  echo "set ssl:check-hostname no \n" > /home/vagrant/.lftprc
+fi
